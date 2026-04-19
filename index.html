@@ -9,7 +9,8 @@
             --bg-color: #ebdcb2;
             --text-color: #4a3b2c;
             --gold: #d4af37;
-            --border-color: #b8860b;
+            --border-color: #8b4513;
+            --alert-red: #d32f2f;
         }
         body {
             background-color: var(--bg-color);
@@ -22,22 +23,43 @@
             -webkit-tap-highlight-color: transparent;
         }
         .container { max-width: 500px; margin: 0 auto; padding: 20px; box-sizing: border-box; }
-        h1 { text-align: center; font-size: 1.5rem; color: #5c4033; border-bottom: 2px solid var(--gold); padding-bottom: 10px; }
+        
+        /* タイトルエリア */
+        .header-title { text-align: center; margin-bottom: 20px; }
+        .header-title h1 { font-size: 1.4rem; color: #5c4033; margin: 0; }
+        .header-title .sub-title { font-size: 1.1rem; display: block; margin-top: 5px; font-weight: bold; }
+        .header-title .edition { font-size: 1.2rem; color: #8b4513; display: block; }
+
         h2 { color: #8b4513; font-size: 1.2rem; border-left: 5px solid var(--gold); padding-left: 10px; margin-top: 30px; }
         
         .info-card {
             background: rgba(255, 255, 255, 0.6);
             padding: 15px; border-radius: 8px; border: 1px solid var(--gold); margin-bottom: 20px;
         }
-        .important-note {
-            background: #fff3cd; color: #856404; border: 2px solid #ffeeba;
-            padding: 12px; border-radius: 5px; font-weight: bold; text-align: center; margin: 10px 0;
+
+        /* 警告・重要メッセージ */
+        .attention-box {
+            background: #fff;
+            border: 3px solid var(--alert-red);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
         }
-        .rule-box {
-            background: #fdf5e6; border: 1px solid #8b4513; padding: 15px; border-radius: 8px;
+        .highlight-text { color: var(--alert-red); font-weight: bold; text-decoration: underline; }
+        .main-instruction { font-size: 1.1rem; font-weight: bold; background: #ffeb3b; padding: 5px; display: inline-block; margin-top: 10px; border: 1px solid #000; }
+        .qr-instruction { font-size: 1.05rem; font-weight: bold; color: #1a237e; border: 2px solid #1a237e; padding: 10px; margin: 20px 0; border-radius: 5px; }
+
+        .qr-placeholder {
+            width: 150px; height: 150px; border: 2px dashed #666; margin: 10px auto;
+            display: flex; align-items: center; justify-content: center; background: #eee;
         }
-        .icon-area { display: flex; gap: 10px; justify-content: center; margin: 15px 0; }
-        
+
+        .negotiation-highlight {
+            color: #d32f2f; font-weight: bold; font-size: 1.2rem; border: 2px solid #d32f2f; padding: 5px; display: inline-block; margin-top: 10px;
+        }
+
+        /* モーダル関連 */
         #video-modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.8); z-index: 10000; justify-content: center; align-items: center; flex-direction: column;
@@ -46,23 +68,37 @@
         .video-wrapper { position: relative; padding-top: 56.25%; width: 100%; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* 追加デザイン */
-        .btn-undo { background: #95a5a6; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; border: none; margin-top: 10px; }
+        .btn-video { background:#5c4033; color:#f4e4bc; border:1px solid var(--border-color); padding:12px 25px; border-radius:25px; font-weight:bold; cursor:pointer; font-size: 1rem; }
+        .special-card-note { background: #e3f2fd; border: 2px solid #2196f3; padding: 15px; border-radius: 8px; margin-top: 30px; text-align: center; font-weight: bold; }
+
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>トラベル・プロフェット<br><small style="font-size:0.8rem;">～ 遊び方ガイド（閲覧専用） ～</small></h1>
-
-    <div class="important-note">
-        ⚠️ 本サイトは「説明専用」です<br>
-        <p style="font-size:0.85rem; font-weight:normal; margin: 5px 0 0 0;">
-            点数計算機能は代表者（1名）のアプリにのみ実装されています。<b>プレイヤー登録と計算は代表者の画面で行ってください。</b>
-        </p>
+    <div class="header-title">
+        <h1>旅を彩るカードゲーム</h1>
+        <span class="sub-title">～トラベル・プロフェット～</span>
+        <span class="edition">家族旅行Edition</span>
     </div>
 
     <div style="text-align:center; margin-bottom:20px;">
-        <button onclick="openVideo()" style="background:#5c4033; color:#f4e4bc; border:1px solid var(--border-color); padding:10px 20px; border-radius:20px; font-weight:bold; cursor:pointer;">📖 動画でルールを見る</button>
+        <p>～トラベル・プロフェット～の遊び方説明サイトです。</p>
+        <button onclick="openVideo()" class="btn-video">📖 動画でルールを見る</button>
+    </div>
+
+    <div class="attention-box">
+        このサイトに“<span class="highlight-text">プレイヤー登録</span>”と”<span class="highlight-text">点数計算</span>”機能はありません。<br>
+        遊び方の説明だけに特化したサイトです。<br>
+        <div class="main-instruction">
+            “プレイヤー登録”と”点数計算”は代表者1人のスマホで行って下さい。
+        </div>
+    </div>
+
+    <div class="qr-instruction" style="text-align:center;">
+        代表者以外のプレイヤーは以下のQRコードから遊び方説明専用サイトに移動して下さい。
+        <div class="qr-placeholder">
+            <span>QRコード添付箇所</span>
+        </div>
     </div>
 
     <h2>1. 交換フェイズ：予言の浄化</h2>
@@ -74,26 +110,23 @@
     <h2>2. 交換フェイズ：苦難の回収</h2>
     <div class="info-card">
         他人が捨てたカードの中から欲しいものを回収できます。上限は<b>金1枚、銀2枚、銅3枚</b>までです。<br><br>
-        <div class="important-note">回収したカードはまだ手札に入れず、自分の前に伏せたまま並べておくこと！</div>
+        <div style="background:#fff3cd; padding:10px; border-radius:5px; border:1px solid #8b4513;">
+            ※予言の中身は見ないまま回収します。回収したカードはまだ手札には入れず、自分の前に並べて下さい。金・銀・銅いずれのカードを回収しても1点の加算です。
+        </div>
         
-        <p style="font-size:1.1rem; margin-top:10px; text-align:center; background:#d32f2f; color:white; padding:5px; border-radius:5px; font-weight:bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">1枚回収するごとに1点加点！</p>
-        <div style="text-align:right;"><button class="btn-undo">↩ 1点取消(戻る)</button></div>
-        
-        <p style="font-size:0.8rem; color:#666; margin-top:10px;">予言の中身は見えません。属性アイコンだけを頼りにしてください。回収したいカードが被ったら当人同士で交渉！</p>
-        <div class="icon-area">
-            <img src="https://i.postimg.cc/8CNHNQcv/muaikon.png" width="45" alt="目">
-            <img src="https://i.postimg.cc/Y2fKNgLz/kouaikon.png" width="45" alt="口">
-            <img src="https://i.postimg.cc/nzGRm4SX/shou-zuaikon.png" width="45" alt="手足">
+        <div style="text-align:center;">
+            <div class="negotiation-highlight">回収したいカードが被ったら当人同士で交渉!!</div>
         </div>
     </div>
 
     <h2>3. 交換フェイズ：6枚への復帰</h2>
     <div class="info-card">
-        手札を<b>金1枚、銀2枚、銅3枚 (計6枚)</b>に調整します。<br><br>
-        1. 回収したカードは<b>必ず</b>手札に入れます。<br>
-        2. 最初に配られた手札から超過分を捨てて調整します。<br>
-        3. 足りない場合は<b>山札から</b>補充します。
-        <div class="important-note" style="margin-top:15px;">
+        手札の枚数を金1枚、銀2枚、銅3枚 (計6枚)となるよう最終調整します。<br><br>
+        1.まず 回収したカードは必ず手札に入れます。<br>
+        2. 規定枚数を超過したら、最初に配られた手札から捨てて調整します。<br>
+        3. 規定枚数に足りない場合は山札から補充します。
+        
+        <div style="background:#8b4513; color:white; padding:10px; border-radius:5px; margin-top:15px; text-align:center;">
             全員の手札が計6枚になったら冒険の開始です！
         </div>
     </div>
@@ -106,13 +139,17 @@
     </div>
 
     <h2>5. プロフェット忘れと指摘</h2>
-    <div class="rule-box">
+    <div class="info-card" style="background:#fdf5e6; border:1px solid #8b4513;">
         <p><b>【プロフェット！宣言】</b><br>予言達成時に宣言して開示。金(5点)、銀(2点)、銅(1点)がもらえます。</p>
         <p style="border-top:1px dashed #8b4513; padding-top:10px;"><b>【宣言忘れ指摘】</b><br>宣言を忘れていることを誰かが指摘した場合、<b>指摘した人に1点</b>が加点されます。忘れた人は加点されません。</p>
     </div>
 
+    <div class="special-card-note">
+        家族旅行Editionには金・銀・銅それぞれのカードに1枚ずつ白紙の予言カードがあります。家族オリジナルの予言を書いて使用して下さい。
+    </div>
+
     <div style="margin-top:40px; text-align:center; font-size:0.8rem; color:#999;">
-        Travel Prophet Guide v1.2
+        Travel Prophet Guide v1.3
     </div>
 </div>
 
