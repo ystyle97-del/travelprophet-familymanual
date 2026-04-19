@@ -24,7 +24,6 @@
         }
         .container { max-width: 500px; margin: 0 auto; padding: 20px; box-sizing: border-box; }
         
-        /* タイトルエリア */
         .header-title { text-align: center; margin-bottom: 20px; }
         .header-title h1 { font-size: 1.4rem; color: #5c4033; margin: 0; }
         .header-title .sub-title { font-size: 1.1rem; display: block; margin-top: 5px; font-weight: bold; }
@@ -37,7 +36,6 @@
             padding: 15px; border-radius: 8px; border: 1px solid var(--gold); margin-bottom: 20px;
         }
 
-        /* 警告・重要メッセージ */
         .attention-box {
             background: #fff;
             border: 3px solid var(--alert-red);
@@ -48,18 +46,14 @@
         }
         .highlight-text { color: var(--alert-red); font-weight: bold; text-decoration: underline; }
         .main-instruction { font-size: 1.1rem; font-weight: bold; background: #ffeb3b; padding: 5px; display: inline-block; margin-top: 10px; border: 1px solid #000; }
-        .qr-instruction { font-size: 1.05rem; font-weight: bold; color: #1a237e; border: 2px solid #1a237e; padding: 10px; margin: 20px 0; border-radius: 5px; }
-
-        .qr-placeholder {
-            width: 150px; height: 150px; border: 2px dashed #666; margin: 10px auto;
-            display: flex; align-items: center; justify-content: center; background: #eee;
-        }
+        
+        /* 追加された指示文章のスタイル */
+        .next-step-msg { font-size: 1.05rem; font-weight: bold; color: #1a237e; text-align: center; margin: 20px 0; padding: 10px; }
 
         .negotiation-highlight {
             color: #d32f2f; font-weight: bold; font-size: 1.2rem; border: 2px solid #d32f2f; padding: 5px; display: inline-block; margin-top: 10px;
         }
 
-        /* モーダル関連 */
         #video-modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.8); z-index: 10000; justify-content: center; align-items: center; flex-direction: column;
@@ -94,11 +88,8 @@
         </div>
     </div>
 
-    <div class="qr-instruction" style="text-align:center;">
-        代表者以外のプレイヤーは以下のQRコードから遊び方説明専用サイトに移動して下さい。
-        <div class="qr-placeholder">
-            <span>QRコード添付箇所</span>
-        </div>
+    <div class="next-step-msg">
+        代表者のスマホで全員のプレイヤー登録(最大5人)が完了したら、以下に進んで下さい。
     </div>
 
     <h2>1. 交換フェイズ：予言の浄化</h2>
@@ -109,7 +100,7 @@
 
     <h2>2. 交換フェイズ：苦難の回収</h2>
     <div class="info-card">
-        他人が捨てたカードの中から欲しいものを回収できます。上限は<b>金1枚、銀2枚、銅3枚</b>までです。<br><br>
+        他人が捨てた"難しい予言"のカードの中から欲しいものを回収することができます。回収できる上限枚数は<b>金1枚、銀2枚、銅3枚</b>です。<br><br>
         <div style="background:#fff3cd; padding:10px; border-radius:5px; border:1px solid #8b4513;">
             ※予言の中身は見ないまま回収します。回収したカードはまだ手札には入れず、自分の前に並べて下さい。金・銀・銅いずれのカードを回収しても1点の加算です。
         </div>
@@ -122,9 +113,9 @@
     <h2>3. 交換フェイズ：6枚への復帰</h2>
     <div class="info-card">
         手札の枚数を金1枚、銀2枚、銅3枚 (計6枚)となるよう最終調整します。<br><br>
-        1.まず 回収したカードは必ず手札に入れます。<br>
-        2. 規定枚数を超過したら、最初に配られた手札から捨てて調整します。<br>
-        3. 規定枚数に足りない場合は山札から補充します。
+        1.まず <b>回収したカードは必ず手札に入れます。</b><br>
+        2. 規定枚数を超過したら、<b>最初に配られた手札から捨てて調整します。</b><br>
+        3. 規定枚数に足りない場合は<b>山札から補充します。</b>
         
         <div style="background:#8b4513; color:white; padding:10px; border-radius:5px; margin-top:15px; text-align:center;">
             全員の手札が計6枚になったら冒険の開始です！
@@ -134,7 +125,7 @@
     <h2>4. 冒険中の加点ルール</h2>
     <div class="info-card">
         <div style="background:#fff3cd; border:2px solid #8b4513; padding:12px; border-radius:10px; font-size:0.9rem; color:#4a3b2c; text-align:center;">
-            <b>予言を達成したら「プロフェット!」と宣言して、予言の内容を全員に開示します。これにより金→5点、銀→2点、銅→1点が加点されます。予言の色に合わせたボタンを押して下さい。</b>
+            <b>予言を達成したら「プロフェット!」と宣言して、予言の内容を全員に開示します。これにより金→5点、銀→2点、銅→1点が加点されます。</b>
         </div>
     </div>
 
